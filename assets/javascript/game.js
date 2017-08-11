@@ -31,7 +31,7 @@
 
       // This logic determines the outcome of the game (win/loss), and increments the appropriate number, clears guessed letters, resets guess count.
       if(newGuess) {
-        if (userGuess === letter) {
+        if (userGuess.toLowerCase() === letter) {
         	wins++;
         	guessCount = 10;
         	wrongGuesses = "";
