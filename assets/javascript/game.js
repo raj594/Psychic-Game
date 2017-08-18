@@ -23,6 +23,7 @@
       	letter = letters[Math.floor(Math.random() * letters.length)];
       };
 
+      // Flag to make sure that the guess is not a duplicate of a previous guess.
       for (var i = 0; i < wrongGuesses.length; i++) {
         if ( userGuess === wrongGuesses[i]){
           newGuess = false;
@@ -31,6 +32,8 @@
 
       // This logic determines the outcome of the game (win/loss), and increments the appropriate number, clears guessed letters, resets guess count.
       if(newGuess) {
+
+        //If the user guesses right, increment wins and reset state of game.
         if (userGuess.toLowerCase() === letter) {
         	wins++;
         	guessCount = 10;
@@ -39,10 +42,14 @@
         	userGuess = "";
 
         } else if (guessCount > 1){
+
+          // If the user guesses wrong and there are guesses left, decrement guesses left and add incorrect guess to guess list.
         	wrongGuesses += userGuess;
         	guessCount--;
 
         } else {
+
+          // If the user guesses wrong and there are no guesses left, increment losses and reset the state of the game.
         	losses++;
         	guessCount = 10;
         	wrongGuesses = "";
@@ -50,6 +57,7 @@
         	letter = "";
         }
       } else {
+        // reset new guess flag.
         newGuess = true;
       }
 
