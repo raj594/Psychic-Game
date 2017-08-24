@@ -15,6 +15,9 @@
         if (event.key === letters[i]) {
           var userGuess = event.key;
         }
+        if (event.key.toLowerCase() === letters[i]) {
+          var userGuess = event.key.toLowerCase();
+        }
       }
 
 
@@ -34,7 +37,7 @@
       if(newGuess) {
 
         //If the user guesses right, increment wins and reset state of game.
-        if (userGuess.toLowerCase() === letter) {
+        if (userGuess.toLowerCase() == letter  || userGuess == letter) {
         	wins++;
         	guessCount = 10;
         	wrongGuesses = "";
